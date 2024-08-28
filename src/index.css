@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .input {
+    @apply bg-gray-100   text-gray-900 text-sm rounded-lg focus:ring-yellow focus:border-yellow block w-full ps-14 p-4;
+  }
+  .error{
+    @apply text-red-600 mt-3 ms-2;
+  }
+  .authentication_div_1{
+    @apply flex-auto hidden lg:flex  lg:w-2/5 h-screen  flex-col items-center justify-center text-white bg-cover bg-center  
+  }
+  .authentication_div_2{
+    @apply flex-auto lg:w-3/5 w-full h-screen bg-white flex flex-col items-center justify-center lg:px-64
+  }
+  .auth_button{
+    @apply text-white  hover:text-black rounded-full  border border-white hover:bg-white focus:ring-4 focus:outline-none focus:ring-white font-medium  text-sm px-5 py-2.5 text-center me-2 mb-2 w-2/3
+  }
+  .task_button{
+    @apply text-white bg-yellow hover:bg-yellow focus:outline-none focus:ring-4 focus:ring-yellow font-medium rounded-full text-sm px-5 py-2.5 text-center
+  }
+  .action_button{
+    @apply text-white bg-yellow font-medium rounded-2xl   lg:px-5 py-3 
+
+  }
+
+
+
+  
+}
+@layer utilities{
+  .h1{
+    @apply text-2xl font-bold text-center text-gray-800 ;
+  }
+}
