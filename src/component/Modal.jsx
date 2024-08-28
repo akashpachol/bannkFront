@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Modal } from '@mui/material';
 import { deposit, withdraw } from '../Service/user/apiMethod';
 import { AiOutlineClose } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 
 const initialValues = {
     amount: '',
@@ -25,6 +26,8 @@ const ModalData = ({isValue, closeModal,isModalOpen,toggleApi}) => {
                 try {
                     const response = await deposit(values);
                     if (response.status === "success") {
+                        toast.success(response.message);
+
                         closeModal()
                         toggleApi()
                     } else {
@@ -32,12 +35,15 @@ const ModalData = ({isValue, closeModal,isModalOpen,toggleApi}) => {
                     }
                   } catch (error) {
                     const errorMessage = error.message
-                   console.log(errorMessage);
+                    toast.error(errorMessage);
                   }
             }else{
                 try {
                     const response = await withdraw(values);
                     if (response.status === "success") {
+                        console.log(response.message);
+                        toast.success(response.message);
+
                         closeModal()
                         toggleApi()
                     } else {
@@ -45,7 +51,8 @@ const ModalData = ({isValue, closeModal,isModalOpen,toggleApi}) => {
                     }
                   } catch (error) {
                     const errorMessage = error.message
-                   console.log(errorMessage);
+                    console.log(errorMessage);
+                    toast.error(errorMessage);
                   }
             }
          

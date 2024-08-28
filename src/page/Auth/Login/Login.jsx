@@ -10,6 +10,7 @@ import { postLogin } from "../../../Service/auth/apiMethod";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../../redux/slice/UserAuthSlice";
+import { toast } from "react-toastify";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -44,12 +45,13 @@ const Login = () => {
         const response = await postLogin(values);
         console.log(response, "response");
         if (response.status === "success") {
+          toast.success(response.message);
           dispatch(loginSuccess({ data: response }));
           console.log("hai", response);
 
           navigate("/home");
         } else {
-          console.log("hai", response.message);
+          console.log( response.message);
         }
       } catch (error) {
         const errorMessage = error.message;
